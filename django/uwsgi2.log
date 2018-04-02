@@ -1,0 +1,39 @@
+*** Starting uWSGI 2.0.15 (64bit) on [Fri Oct 27 17:47:59 2017] ***
+compiled with version: 4.2.1 Compatible Apple LLVM 9.0.0 (clang-900.0.38) on 27 October 2017 03:33:43
+os: Darwin-17.0.0 Darwin Kernel Version 17.0.0: Thu Aug 24 21:48:19 PDT 2017; root:xnu-4570.1.46~2/RELEASE_X86_64
+nodename: D-MBP.local
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /Users/delron/Desktop/Python_14/dailyfresh_14
+writing pidfile to uwsgi2.pid
+detected binary path: /Users/delron/.virtualenv/django_py3/bin/uwsgi
+chdir() to /Users/delron/Desktop/Python_14/dailyfresh_14
+your processes number limit is 1418
+your memory page size is 4096 bytes
+detected max file descriptor number: 12544
+lock engine: OSX spinlocks
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 10.211.55.2:8090 fd 3
+Python version: 3.6.2 (default, Jul 17 2017, 16:44:45)  [GCC 4.2.1 Compatible Apple LLVM 8.1.0 (clang-802.0.42)]
+Set PythonHome to /Users/delron/.virtualenv/django_py3
+Python main interpreter initialized at 0x7fc40c028200
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 415200 bytes (405 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x7fc40c028200 pid: 18833 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 18833)
+spawned uWSGI worker 1 (pid: 18836, cores: 2)
+spawned uWSGI worker 2 (pid: 18837, cores: 2)
+spawned uWSGI worker 3 (pid: 18838, cores: 2)
+spawned uWSGI worker 4 (pid: 18839, cores: 2)
+[pid: 18837|app: 0|req: 1/1] 10.211.55.2 () {42 vars in 834 bytes} [Fri Oct 27 17:58:49 2017] GET /users/login => generated 1989 bytes in 631 msecs (HTTP/1.1 200) 4 headers in 224 bytes (1 switches on core 0)
+没有缓存数据， 查询了数据库
+[pid: 18839|app: 0|req: 1/2] 10.211.55.2 () {44 vars in 864 bytes} [Fri Oct 27 17:59:03 2017] GET /index => generated 13577 bytes in 1314 msecs (HTTP/1.1 200) 3 headers in 102 bytes (2 switches on core 1)
+[pid: 18838|app: 0|req: 1/3] 10.211.55.2 () {40 vars in 730 bytes} [Fri Oct 27 17:59:04 2017] GET /js/slideshow.js => generated 89 bytes in 740 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 18839|app: 0|req: 2/4] 10.211.55.2 () {42 vars in 838 bytes} [Fri Oct 27 18:00:34 2017] GET /detail/26 => generated 8362 bytes in 42 msecs (HTTP/1.1 200) 4 headers in 224 bytes (1 switches on core 1)
+[pid: 18837|app: 0|req: 2/5] 10.211.55.2 () {42 vars in 836 bytes} [Fri Oct 27 18:07:08 2017] GET /detail/5 => generated 8113 bytes in 565 msecs (HTTP/1.1 200) 4 headers in 224 bytes (1 switches on core 0)

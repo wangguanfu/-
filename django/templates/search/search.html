@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}天天生鲜-搜索结果{% endblock %}
+
+{% block search_bar %}
+    <div class="search_bar clearfix">
+        <a href="{% url 'goods:index' %}" class="logo fl"><img src="{% static 'images/logo.png' %}"></a>
+        <div class="sub_page_name fl">|&nbsp;&nbsp;&nbsp;&nbsp;搜索结果</div>
+        <div class="search_con fr">
+            <form action="/search/" method="get">
+            <input type="text" class="input_text fl" name="q" placeholder="搜索商品">
+            <input type="submit" class="input_btn fr" value="搜索">
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+{% block body %}
+    <div class="main_wrap clearfix">
+        <ul class="goods_type_list clearfix">
+        {% for result in page %}
+            <li>
+                <a href="{% url 'goods:detail' result.object.id %}"><img src="{{ result.object.default_image.url }}"></a>
+                <h4><a href="{% url 'goods:detail' result.object.id %}">{{result.object.name}}</a></h4>
+                <div class="operate">
+                    <span class="prize">￥{{ result.object.price }}</span>
+                    <span class="unit">{{ result.object.price }}/{{ result.object.unit }}</span>
+                </div>
+            </li>
+        {% empty %}
+            <p>没有找到您要查询的商品。</p>
+        {% endfor %}
+        </ul>
+
+        {% if page.has_previous or page.has_next %}
+        <div class="pagenation">
+            {% if page.has_previous %}<a href="/search/?q={{ query }}&amp;page={{ page.previous_page_number }}">{% endif %}<上一页{% if page.has_previous %}</a>{% endif %}
+            |
+            {% if page.has_next %}<a href="/search/?q={{ query }}&amp;page={{ page.next_page_number }}">{% endif %}下一页>{% if page.has_next %}</a>{% endif %}
+        </div>
+        {% endif %}
+    </div>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,43 @@
+{% extends "user_center_base.html" %}
+{% load staticfiles %}
+
+{% block body %}
+	<div class="main_con clearfix">
+		<div class="left_menu_con clearfix">
+			<h3>用户中心</h3>
+			<ul>
+				<li><a href="{% url 'users:info' %} " class="active">· 个人信息</a></li>
+				<li><a href="{% url 'orders:info' 1 %}">· 全部订单</a></li>
+				<li><a href="{% url 'users:address' %}">· 收货地址</a></li>
+			</ul>
+		</div>
+		<div class="right_content clearfix">
+				<div class="info_con clearfix">
+				<h3 class="common_title2">基本信息</h3>
+						<ul class="user_info_list">
+							<li><span>用户名：</span>{{ user.username }}</li>
+							<li><span>联系方式：</span>{{ address.receiver_mobile }}</li>
+							<li><span>联系地址：</span>{{ address.detail_addr }}</li>
+						</ul>
+				</div>
+				
+				<h3 class="common_title2">最近浏览</h3>
+				<div class="has_view_list">
+					<ul class="goods_type_list clearfix">
+						{% for sku in skus %}
+				<li>
+					<a href="detail.html"><img src="{{ sku.default_image.url }}"></a>
+					<h4><a href="detail.html">{{ sku.name }}</a></h4>
+					<div class="operate">
+						<span class="prize">￥{{ sku.price }}</span>
+						<span class="unit">{{sku.price}}/{{ sku.unit}}</span>
+						<a href="#" class="add_goods" title="加入购物车"></a>
+					</div>
+				</li>
+						{% endfor %}
+			</ul>
+		</div>
+		</div>
+	</div>
+{% endblock %}
+
